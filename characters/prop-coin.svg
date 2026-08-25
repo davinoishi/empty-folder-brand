@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="prop coin" viewBox="0 0 60 60" aria-hidden="true">
+<circle cx="30" cy="30" r="27" fill="#AD8F63"/><circle cx="30" cy="30" r="19" fill="#B5966A"/>
+<path d="M30 16 v28 M23 23 h11 a5 5 0 0 1 0 10 h-8 a5 5 0 0 0 0 10 h11"
+ stroke="#6B5540" stroke-width="4" fill="none" stroke-linecap="round"/></svg>

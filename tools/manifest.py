@@ -12,7 +12,7 @@ import os
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DIRS = ("tokens", "fonts", "strings", "logos")
+DIRS = ("tokens", "fonts", "strings", "logos", "characters")
 OUT = os.path.join(ROOT, "MANIFEST.sha256")
 
 

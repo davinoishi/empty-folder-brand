@@ -1,0 +1,6 @@
+<svg class="char" xmlns="http://www.w3.org/2000/svg" id="bo-hopeful" viewBox="70 0 112 210"><style>
+  .sk-pip{fill:#B0734A}.tn-pip{fill:#8A5A3A}
+  .sk-bo{fill:#6E7F8C}.tn-bo{fill:#566470}
+  .fl{fill:#EFE9DC}
+  .ln{fill:none;stroke:#EFE9DC;stroke-width:4;stroke-linecap:round}
+</style><rect x="74" y="106" width="16" height="50" rx="8" class="sk-bo"/><rect x="162" y="106" width="16" height="50" rx="8" class="sk-bo"/><rect x="106" y="158" width="17" height="48" rx="8.5" class="sk-bo"/><rect x="131" y="158" width="17" height="48" rx="8.5" class="sk-bo"/><rect x="94" y="102" width="64" height="58" rx="18" class="tn-bo"/><circle cx="126" cy="70" r="34" class="sk-bo"/><circle cx="114" cy="66" r="5.5" class="fl"/><circle cx="138" cy="66" r="5.5" class="fl"/><path d="M118 85 Q126 92 134 85" class="ln"/></svg>

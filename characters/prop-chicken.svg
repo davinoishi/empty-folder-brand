@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="prop chicken" viewBox="0 0 120 110" aria-hidden="true">
+<ellipse cx="58" cy="66" rx="40" ry="32" fill="#7A6349"/>
+<path d="M92 44 L114 52 L92 62 Z" fill="#7A6349"/>
+<circle cx="40" cy="34" r="20" fill="#7A6349"/>
+<path d="M22 32 L6 36 L22 42 Z" fill="#B5966A"/>
+<circle cx="34" cy="30" r="3.2" fill="#22201C"/>
+<path d="M40 14 q6 -10 12 0" stroke="#B5966A" stroke-width="6" fill="none" stroke-linecap="round"/>
+<path d="M46 96 L46 108 M70 96 L70 108" stroke="#5C4A38" stroke-width="5" stroke-linecap="round"/>
+</svg>
