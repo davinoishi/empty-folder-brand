@@ -1,0 +1,169 @@
+/* ============================================================
+   Pipedia — design tokens and primitives.
+
+   CANONICAL HOME: davinoishi/empty-folder-brand, tokens/pipedia.css.
+   Consumers vendor this file to brand/tokens/pipedia.css and verify it
+   against MANIFEST.sha256. Edit it HERE; editing a vendored copy
+   fails that consumer's brand check, which is the whole point of
+   the check existing.
+
+   THIS FILE IS LIVE. shared/build/pipedia.py reads it at build
+   time and inlines it into every composition. Change a colour
+   here and every episode changes on the next build.
+
+   Component styles (labels, figures, captions, the tag, the
+   idea card) live in pipedia.py's CSS constant. Tokens and
+   primitives live here. Don't duplicate across the two.
+
+   Spec: ../BRAND-KIT.md §3 (colour) and §4 (type)
+   ============================================================ */
+
+:root {
+  /* --- Base — channel-wide, never changes -------------------
+     Warm paper, not white: #FFF clips and blooms under video
+     encoding, and dark backgrounds die on classroom projectors. */
+  --bg:         #EFE9DC;   /* warm paper                        */
+  --surface:    #FBF8F2;   /* raised cards, callouts            */
+  --ink:        #22201C;   /* primary text        13.44:1 on bg */
+  --ink-muted:  #5C574E;   /* secondary, captions  5.93:1 on bg.        */
+                           /* Was #6B655C at 4.77:1 — too close to the  */
+                           /* 4.5 threshold; anti-aliasing at landscape */
+                           /* sizes pushed it under and check failed.   */
+  --brand:      #27406E;   /* Pipedia wordmark     8.49:1 on bg */
+
+  /* --- Semantic — never the sole carrier of meaning ---------
+     Always paired with an arrow, a +/-, or a labelled icon.
+     Red is desaturated on purpose: saturated red smears under
+     H.264 chroma subsampling. Fills and thick strokes only. */
+  --positive:   #196349;   /* money in, growth     5.94:1 on bg */
+  --negative:   #A93A24;   /* money out, cost      5.23:1 on bg */
+
+  /* --- Characters ------------------------------------------
+     Deliberately neutral and outside every series accent, so
+     they never compete with the teaching colour. When something
+     turns --accent that always means "look here", never
+     "that's Pip". One hue each — no skin tone. */
+  --pip:        #B0734A;   /* clay   3.22:1 on bg */
+  --pip-tunic:  #8A5A3A;
+  --bo:         #6E7F8C;   /* slate  3.42:1 on bg */
+  --bo-tunic:   #566470;
+
+  /* --- Props -----------------------------------------------
+     Neutral only. Colour is reserved for meaning. */
+  --prop-dark:  #5C4A38;
+  --prop:       #6B5540;
+  --prop-mid:   #7A6349;
+  --prop-light: #AD8F63;
+  --prop-pale:  #B5966A;
+
+  /* --- Series accent ---------------------------------------
+     Overridden per series — see money/series.css (amber) and
+     business/series.css (teal).
+
+     THE DEFAULT BELOW IS THE CHANNEL ACCENT, not a placeholder.
+     Anything with "series": None — the trailer, the banner, any
+     future channel-level piece — reads no series stylesheet and
+     lands here. It is the brand navy on purpose: Pipedia's own
+     work should be Pipedia's own colour, not series one's.
+
+     It used to be #E0A126, byte-identical to money/series.css,
+     so the trailer was quietly tinted with Money's accent while
+     appearing to have none. BRAND-KIT §3 wrote that down as a
+     trap for series two; building Business is what sprang it.
+     The published trailer still carries amber and will turn navy
+     the next time it is rebuilt.
+
+     --accent      = fill (amber is too light for text; navy and
+                     teal are not, and set --accent-text to self)
+     --accent-text = text-safe variant */
+  --accent:      #27406E;
+  --accent-text: #27406E;
+
+  --digit-w: 0.62em;       /* see .num .d below */
+}
+
+/* --- Units — PROVEN BY RENDER, do not collapse back to one --
+   The composition root must declare `container-type: size`.
+
+   --u  TYPE, off frame WIDTH.  Line length is width-bound.
+   --o  OBJECTS, off frame HEIGHT. Characters and props have no
+        line-length constraint; sizing them off width leaves a
+        9:16 frame two-thirds empty.
+
+   Portrait also multiplies --u by 1.35 — 1cqw of a 1080-wide
+   frame is too small to read on a phone. Redefining --u
+   rescales every calc() at once.
+
+   Each ratio needs ONE multiplier, in opposite places:
+   - PORTRAIT multiplies --u. 1cqw of a 1080-wide frame is too
+     small to read on a phone; the 2.5u floor came out at 27px.
+   - LANDSCAPE multiplies --o. A 16:9 frame is 1080 tall where
+     9:16 is 1920, so objects sized off height come out 56% as
+     big and the wide frame reads empty.
+   Redefining the unit rescales every calc() at once, so no
+   individual size needs touching.
+
+   Type sizes themselves live with their components in
+   pipedia.py. The floor is 2.5u: below that it doesn't go on
+   screen, it goes in the voiceover (BRAND-KIT §4). */
+.stage, .cap {
+  --u: 1cqw;      /* type:    3.2u = 61px at 1920 wide */
+  --o: 1.45cqh;   /* objects: sized up for the short edge */
+}
+@container (max-aspect-ratio: 1/1) {
+  .stage, .cap {
+    --u: 1.35cqw; /* type:    3.9u = 57px at 1080 wide */
+    --o: 1cqh;    /* objects: the tall frame needs no help */
+  }
+}
+
+/* Marker-pen wash, derived from the accent so it re-tints per
+   series with nothing to keep in sync. */
+.stage { --highlight: color-mix(in srgb, var(--accent) 25%, transparent); }
+
+/* --- Character fills -------------------------------------
+   MUST live in the composition stylesheet: inlined SVG markup
+   carries the class names but not the rules, and the
+   characters render solid black without them. */
+.sk-pip { fill: var(--pip); }
+.tn-pip { fill: var(--pip-tunic); }
+.sk-bo  { fill: var(--bo); }
+.tn-bo  { fill: var(--bo-tunic); }
+.fl     { fill: var(--ink); }
+.ln     { fill: none; stroke: var(--ink); stroke-width: 4; stroke-linecap: round; }
+
+/* --- Counting numbers — digit slots ------------------------
+   VERIFIED: neither Fredoka nor Lexend ships a 'tnum' feature,
+   and both have proportional digits (Fredoka '1'=396 vs
+   '2'=608 per 1000). font-variant-numeric:tabular-nums is a
+   NO-OP on these faces, so every digit gets a fixed-width slot.
+   0.62em clears the widest digit in both (Lexend '4'=620).
+
+   Markup: <span class="num">$<span class="d">5</span>…</span>
+   Slot the digits only — not $ . or , which never change.
+
+   Do NOT enable Lexend's 'zero' feature: a slashed zero is
+   wrong for readers still learning to form digits. */
+.num .d {
+  display: inline-block;
+  width: var(--digit-w);
+  text-align: center;
+}
+
+/* --- Fonts -------------------------------------------------
+   HyperFrames embeds fonts at compile time, so they're
+   available immediately — do NOT gate on document.fonts.ready,
+   the framework forbids async timeline construction.
+   font-display:block so no fallback face ever reaches a frame. */
+@font-face {
+  font-family: 'Fredoka';
+  src: url('fonts/Fredoka-Variable.woff2') format('woff2-variations');
+  font-weight: 300 700;   /* axes: wght 300-700, wdth 75-125 */
+  font-display: block;
+}
+@font-face {
+  font-family: 'Lexend';
+  src: url('fonts/Lexend-Variable.woff2') format('woff2-variations');
+  font-weight: 100 900;   /* axis: wght 100-900 */
+  font-display: block;
+}

@@ -1,0 +1,24 @@
+{
+  "_comment": "Canonical strings. Every surface that says one of these must read it from here rather than retyping it — a description, a playlist, a website page, an app listing. Retyping is how two surfaces end up disagreeing about a compliance line.",
+  "version": 1,
+  "umbrella": {
+    "name": "Empty Folder Projects",
+    "tagline": "All you need is an idea and an empty folder."
+  },
+  "shows": {
+    "pipedia": {
+      "name": "Pipedia",
+      "channel": "@Pipedia",
+      "tagline": "Big ideas. Small words.",
+      "compliance": "Pipedia is educational content for children about money — where it comes from, where it goes, and how to keep it safe. It isn't financial advice.",
+      "_compliance_note": "Written for all ten series: the three clauses are verbs rather than topics, which is what lets one line cover a hundred episodes. Goes in the video description, never on the end card. BRAND-KIT §13."
+    },
+    "empty-folder": {
+      "name": "Empty Folder",
+      "channel": "@davinoishi",
+      "signoff": "Next folder's already empty.",
+      "synthesis": "Disclosure, since it's the whole subject: both voices are synthetic (ElevenLabs), the characters are drawn in code rather than illustrated, and the composition is generated HTML rendered frame by frame. Nothing on screen is stock footage or a mock-up.",
+      "_synthesis_note": "The standing disclosure. Every surface says it identically or the rule is pointless. FORMAT §6."
+    }
+  }
+}

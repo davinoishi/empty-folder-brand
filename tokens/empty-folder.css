@@ -1,0 +1,138 @@
+/* ============================================================
+   Empty Folder — design tokens.
+
+   CANONICAL HOME: davinoishi/empty-folder-brand, tokens/empty-folder.css.
+   Consumers vendor this file to brand/tokens/empty-folder.css and verify it
+   against MANIFEST.sha256. Edit it HERE; editing a vendored copy
+   fails that consumer's brand check, which is the whole point of
+   the check existing.
+
+   THIS FILE IS LIVE. empty-folder/build/emptyfolder.py reads it
+   at build time and inlines it into every composition, exactly
+   as shared/tokens.css is. MAKING-OF.md Act 9 is what happens
+   otherwise: a stylesheet documented as the source of
+   consistency that nothing imported, agreeing with reality by
+   luck.
+
+   Spec: ../FORMAT.md §2. Ratios computed, not eyeballed.
+
+   This is NOT Pipedia's kit. It inverts it on purpose — see
+   FORMAT.md §1 for why a video about API keys must not look
+   like a made-for-kids channel.
+   ============================================================ */
+
+:root {
+  /* --- The inverted ground ----------------------------------
+     Pipedia's --ink is this show's --bg, and Pipedia's --bg is
+     this show's --ink. Same two values, opposite jobs. Nothing
+     else in the kit reads as fast at half a second of scroll. */
+  --bg:         #22201C;   /* ink ground      — Pipedia's --ink */
+  --surface:    #2E2B26;   /* code panels, stage cards  1.15:1  */
+  --rule:       #3A3630;   /* hairlines, artifact frames, gutters */
+  --ink:        #EFE9DC;   /* primary text   13.44:1 — Pipedia's --bg */
+  --ink-muted:  #9A948A;   /* captions, mono dim         5.40:1 */
+
+  /* --- Two accents, strict meanings, and no third -----------
+     These are the argument of every episode, so nothing
+     decorative may take either. A tool chip is --ink-muted; a
+     new tool is --fix; a dropped tool is --wrong. That is the
+     whole system.
+
+     --wrong is hotter than Pipedia's --negative because it sits
+     on ink. BRAND-KIT §3's thin-red rule still applies: fills,
+     strike bars and gutters only — never 1px rules or thin
+     text. H.264 chroma subsampling does not care about the
+     ground it smears on. */
+  --wrong:      #E8613C;   /* the claim that was false   4.81:1 */
+  --fix:        #3FBF9F;   /* the thing that was true    7.10:1 */
+
+  /* --- Artifact fill ----------------------------------------
+     The ONLY place Pipedia's paper appears. Real Pipedia work
+     is quoted inside a hairline-framed rectangle of this, with
+     a mono caption beneath it. Pip and Bo stand beside it on
+     the dark ground and never step inside (FORMAT §1). */
+  --paper:      #EFE9DC;
+
+  /* --- Characters — NOT recoloured, and measured ------------
+     Clay and slate were picked to sit outside every series
+     accent (BRAND-KIT §6). That also made them ground-agnostic:
+     both read BETTER on ink than on the paper they were drawn
+     for. Do not invent --pip-dark / --bo-dark; there is nothing
+     to fix.
+                        on paper    on ink
+       Pip   #B0734A     3.22:1     4.18:1
+       Bo    #6E7F8C     3.42:1     3.93:1                     */
+  --pip:        #B0734A;
+  --pip-tunic:  #8A5A3A;
+  --bo:         #6E7F8C;
+  --bo-tunic:   #566470;
+
+  /* No --accent, and no series accent, ever. Money's amber is
+     7.70:1 on this ground and is still forbidden — it is
+     Pipedia's alphabet (FORMAT §2, BRAND-KIT §3 and §5). */
+}
+
+/* --- Units — inherited from BRAND-KIT §4 unchanged ----------
+   --u  TYPE, off frame WIDTH.  --o  OBJECTS, off frame HEIGHT.
+   The composition root must declare container-type: size, and
+   these must be declared on a CHILD of it — a container does
+   not query itself (README's hard-won list). */
+.stage, .cap {
+  --u: 1cqw;
+  --o: 1.45cqh;
+}
+@container (max-aspect-ratio: 1/1) {
+  .stage, .cap { --u: 1.35cqw; --o: 1cqh; }
+}
+
+/* --- Character fills ---------------------------------------
+   Inlined SVG carries class names but not rules. Without these
+   Pip and Bo render solid black — which, on this ground, would
+   be invisible rather than merely wrong. */
+.sk-pip { fill: var(--pip); }
+.tn-pip { fill: var(--pip-tunic); }
+.sk-bo  { fill: var(--bo); }
+.tn-bo  { fill: var(--bo-tunic); }
+.fl     { fill: var(--ink); }
+.ln     { fill: none; stroke: var(--ink); stroke-width: 4; stroke-linecap: round; }
+
+/* --- Fonts -------------------------------------------------
+   Self-hosted .woff2 in this project's own fonts/ (BRAND-KIT
+   §4). No Google Fonts URL — it fails offline and in CI. No
+   document.fonts.ready gate; HyperFrames embeds at compile time
+   and forbids async timeline construction.
+
+   Fredoka is deliberately absent. It is Pipedia's display voice
+   and appears nowhere in this show (FORMAT §1). */
+@font-face {
+  font-family: 'Lexend';
+  src: url('fonts/Lexend-Variable.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-display: block;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('fonts/JetBrainsMono-400.woff2') format('woff2');
+  font-weight: 400;
+  font-display: block;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('fonts/JetBrainsMono-700.woff2') format('woff2');
+  font-weight: 700;
+  font-display: block;
+}
+
+/* --- Digits: no slots needed here, and this was MEASURED ----
+   BRAND-KIT §4 gives Pipedia's counting numbers fixed-width
+   slots because neither Fredoka nor Lexend ships tnum and both
+   have proportional digits. A monospace should make that
+   redundant — but "should" is the shape of assumption that cost
+   this project Act 6, so the file was measured:
+
+     JetBrainsMono-400: all ten digits advance 600/1000. One
+     distinct width. Genuinely monospaced.
+
+   So .num / .d are not defined in this kit. Any counting number
+   must be set in 'JetBrains Mono'; put one in Lexend and it
+   will jitter exactly the way §4 describes. */
