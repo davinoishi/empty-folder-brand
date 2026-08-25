@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1832 480" width="1832" height="480">
+<rect width="1832" height="480" fill="#22201C"></rect>
+<g transform="translate(120 120) scale(0.5)"><mask id="cut" maskUnits="userSpaceOnUse" x="0" y="0" width="704" height="480">
+    <rect x="0" y="0" width="704" height="480" fill="#000"></rect>
+    <rect x="0" y="0" width="300" height="130" rx="28" fill="#fff"></rect>
+    <rect x="0" y="80" width="704" height="400" rx="32" fill="#fff"></rect>
+    <rect x="72" y="248" width="560" height="72" rx="16" fill="#000"></rect>
+  </mask>
+  <rect x="0" y="0" width="704" height="480" fill="#3FBF9F" mask="url(#cut)"></rect>
+  <rect x="72" y="248" width="96" height="72" rx="16" fill="#E8613C"></rect></g>
+<text x="592" y="240" font-family="Lexend, system-ui, sans-serif" font-size="132" font-weight="700" letter-spacing="5.3" fill="#EFE9DC" dominant-baseline="middle">EMPTY FOLDER</text>
+</svg>
