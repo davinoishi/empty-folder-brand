@@ -1,12 +1,6 @@
 /* ============================================================
    Empty Folder — design tokens.
 
-   CANONICAL HOME: davinoishi/empty-folder-brand, tokens/empty-folder.css.
-   Consumers vendor this file to brand/tokens/empty-folder.css and verify it
-   against MANIFEST.sha256. Edit it HERE; editing a vendored copy
-   fails that consumer's brand check, which is the whole point of
-   the check existing.
-
    THIS FILE IS LIVE. empty-folder/build/emptyfolder.py reads it
    at build time and inlines it into every composition, exactly
    as shared/tokens.css is. MAKING-OF.md Act 9 is what happens
