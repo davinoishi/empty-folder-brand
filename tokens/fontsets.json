@@ -1,0 +1,14 @@
+{
+  "_comment": "Which fonts each kit ships. Consumers copy exactly this set into a project rather than copying every .woff2 in fonts/, which is what makes an absence enforceable instead of merely written down.",
+  "version": 1,
+  "pipedia.css": [
+    "Fredoka-Variable.woff2",
+    "Lexend-Variable.woff2"
+  ],
+  "empty-folder.css": [
+    "Lexend-Variable.woff2",
+    "JetBrainsMono-400.woff2",
+    "JetBrainsMono-700.woff2"
+  ],
+  "_empty_folder_note": "NO Fredoka, and this is the mechanism rather than a reminder. Fredoka is Pipedia's display voice; FORMAT §1 mechanism 3 keeps it out of Empty Folder entirely, and until this file existed nothing stopped a copy of it landing in an Empty Folder project directory where someone could later reference it."
+}
