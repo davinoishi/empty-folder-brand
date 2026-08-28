@@ -1,6 +1,6 @@
 {
   "_comment": "The copy rules, as data rather than as prose, so a lint step can enforce them instead of a person remembering them. Pipedia BRAND-KIT §13 is the written version and must agree with this file.",
-  "version": 2,
+  "version": 3,
   "english": "british",
   "_english_note": "British English — spelling, vocabulary and idiom. Set 2026-08-25, reversing the American-English rule adopted 2026-08-24. Watch the idioms rather than the spellings: the spellings are easy and the idioms are what slip through.",
   "convert": {
@@ -23,12 +23,13 @@
   "_convert_note": "'line' -> 'queue' and 'more expensive' -> 'dearer' are context-dependent and must never be applied mechanically; a line of CSS is not a queue. They are listed so a human reviewing copy considers them, not so a script rewrites them.",
   "exempt": [
     "youtube_tags",
+    "hashtags",
     "code",
     "file_paths",
     "identifiers",
     "quoted_material"
   ],
-  "_exempt_note": "YouTube tags are search strings, not prose: they are spelled the way people actually type them, which is why 'business math for kids' stays. Code, paths and identifiers are spelled the way the language spells them. Quoted material keeps its source's spelling.",
+  "_exempt_note": "YouTube tags and hashtags are search strings, not prose: they are spelled the way people actually type them, which is why 'business math for kids' stays. A hashtag is the same object as a YouTube tag wearing a '#', so it is exempt for the same reason and not a second rule — '#MathForKids' can sit under a caption that says 'maths'. Code, paths and identifiers are spelled the way the language spells them. Quoted material keeps its source's spelling.",
   "currency": {
     "symbol": "$",
     "_note": "Bare $, no country prefix. BRAND-KIT §13, and NOT affected by the English variant — the audience is self-filtering and localisation is a separate build."
