@@ -17,7 +17,8 @@ is not the secret.
 tokens/pipedia.css        Pipedia's kit — warm paper, Fredoka, series accents
 tokens/empty-folder.css   Empty Folder's kit — ink ground, Lexend + mono, two accents
 fonts/                    the .woff2 that ship, the .ttf they came from, and the licences
-strings/strings.json      taglines, the compliance line, the synthesis disclosure, the sign-off
+strings/strings.json      taglines, the about line, the compliance line, the synthesis
+                          disclosure, the sign-off
 strings/copy-rules.json   British English, the conversion table, and what is exempt from it
 MANIFEST.sha256           every file above, hashed
 ```
@@ -63,6 +64,33 @@ gate rather than as a habit.
 The tokens carry their own reasoning in comments, including the measured
 contrast ratios. Changing a value without re-running the check is how the
 comments start lying.
+
+## Changing a string is not the same as changing a token
+
+A token is only ever read by a build. **A string may already be sitting in
+public** — pasted into a YouTube description, a playlist, an app listing — where
+nothing here can reach it. Editing one in this repo changes what the consumers
+render and does not change what is already published, so the surfaces this repo
+exists to keep identical quietly stop matching.
+
+**So before editing a string, ask where it has already been said.** If the
+answer is "twenty-odd published video descriptions", the edit is not a string
+change, it is a string change plus a re-paste of every one of them — and the
+honest move is usually to add a string rather than rewrite one.
+
+Worked example, 2026-08-28. Pipedia's website panel showed the compliance line
+alone, which reads as money-only on a channel that is no longer only about
+money. Rewriting `compliance` looked like the fix. It was not: `BRAND-KIT.md`
+§13 is LOCKED and that wording covers all ten series deliberately, and the line
+was already live on every published description. The actual gap was that the
+*about* line — shipped above the compliance line on every video since the money
+series — had never been made canonical, so the one surface that could not read
+it went without. `shows.pipedia.about` was added; nothing was rewritten;
+nothing published had to change.
+
+**`_note` keys are part of the file, not clutter.** `_compliance_note` is what
+made that call obvious. A string whose reasoning lives only in a commit message
+gets rewritten by the next person who finds it inconvenient.
 
 ## Licence
 
