@@ -10,6 +10,8 @@
       "name": "Pipedia",
       "channel": "@Pipedia",
       "tagline": "Big ideas. Small words.",
+      "about": "Pipedia — Big ideas. Small words. Two kids, Pip and Bo, take one idea and work it out properly. Made for ages 7–11, and for the adults who get asked these questions at dinner.",
+      "_about_note": "What the channel is, in one line, for a parent or teacher deciding whether to press play. Series-agnostic on purpose — it names no topic, so series three does not need a new one. Ships ABOVE the compliance line on every episode description and on any surface that describes Pipedia; the compliance line is a disclaimer and was never an about line. Pipedia/shared/build/metadata.py ABOUT.",
       "compliance": "Pipedia is educational content for children about money — where it comes from, where it goes, and how to keep it safe. It isn't financial advice.",
       "_compliance_note": "Written for all ten series: the three clauses are verbs rather than topics, which is what lets one line cover a hundred episodes. Goes in the video description, never on the end card. BRAND-KIT §13."
     },
