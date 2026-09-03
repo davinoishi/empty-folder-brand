@@ -17,9 +17,9 @@
 
 :root {
   /* --- The inverted ground ----------------------------------
-     Pipedia's --ink is this show's --bg, and Pipedia's --bg is
-     this show's --ink. Same two values, opposite jobs. Nothing
-     else in the kit reads as fast at half a second of scroll. */
+     Pipedia's --ink is Empty Folder's --bg, and Pipedia's --bg
+     is Empty Folder's --ink. Same two values, opposite jobs.
+     Nothing else in the kit reads as fast at half a second. */
   --bg:         #22201C;   /* ink ground      — Pipedia's --ink */
   --surface:    #2E2B26;   /* code panels, stage cards  1.15:1  */
   --rule:       #3A3630;   /* hairlines, artifact frames, gutters */
@@ -97,7 +97,7 @@
    and forbids async timeline construction.
 
    Fredoka is deliberately absent. It is Pipedia's display voice
-   and appears nowhere in this show (FORMAT §1). */
+   and appears nowhere in Empty Folder (FORMAT §1). */
 @font-face {
   font-family: 'Lexend';
   src: url('fonts/Lexend-Variable.woff2') format('woff2-variations');
