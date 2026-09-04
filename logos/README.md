@@ -1,6 +1,6 @@
 # Empty Folder — logos
 
-The show's own mark. A folder in `--fix` (`#3FBF9F`) with a slot cut out of it
+Empty Folder's own mark. A folder in `--fix` (`#3FBF9F`) with a slot cut out of it
 and a cursor block in `--wrong` (`#E8613C`) at the start of the slot — the two
 accents, doing their usual jobs, on the ink ground.
 
