@@ -1,6 +1,6 @@
 {
   "_comment": "The copy rules, as data rather than as prose, so a lint step can enforce them instead of a person remembering them. Pipedia BRAND-KIT §13 is the written version and must agree with this file.",
-  "version": 3,
+  "version": 4,
   "english": "british",
   "_english_note": "British English — spelling, vocabulary and idiom. Set 2026-08-25, reversing the American-English rule adopted 2026-08-24. Watch the idioms rather than the spellings: the spellings are easy and the idioms are what slip through.",
   "convert": {
@@ -21,15 +21,27 @@
     "line": "queue"
   },
   "_convert_note": "'line' -> 'queue' and 'more expensive' -> 'dearer' are context-dependent and must never be applied mechanically; a line of CSS is not a queue. They are listed so a human reviewing copy considers them, not so a script rewrites them.",
+  "punctuation": {
+    "no_em_dash": true,
+    "_note": "Never an em dash in copy the audience sees or hears: captions, on-screen text, titles, teases, descriptions, voice-over. Set 2026-09-03, after one reached a rendered Pipedia episode. Use the punctuation the sentence needs instead of one mark doing four jobs, and a seven-year-old reading along has met all four of these and not the dash.",
+    "replace_with": {
+      "interruption_or_trailing_off": "…",
+      "introducing_a_list": ":",
+      "an_aside": ",",
+      "separating_a_tease_from_its_subject": ":"
+    },
+    "_not_retroactive": "Pipedia's Money and Business ship about fifty em dashes on screen between them and are published. Nothing is re-cut. A style rule adopted mid-project needs an explicit statement of what it leaves alone; this is it."
+  },
   "exempt": [
     "youtube_tags",
     "hashtags",
     "code",
     "file_paths",
     "identifiers",
-    "quoted_material"
+    "quoted_material",
+    "editorial_notes"
   ],
-  "_exempt_note": "YouTube tags and hashtags are search strings, not prose: they are spelled the way people actually type them, which is why 'business math for kids' stays. A hashtag is the same object as a YouTube tag wearing a '#', so it is exempt for the same reason and not a second rule — '#MathForKids' can sit under a caption that says 'maths'. Code, paths and identifiers are spelled the way the language spells them. Quoted material keeps its source's spelling.",
+  "_exempt_note": "YouTube tags and hashtags are search strings, not prose: they are spelled the way people actually type them, which is why 'business math for kids' stays. A hashtag is the same object as a YouTube tag wearing a '#', so it is exempt for the same reason and not a second rule — '#MathForKids' can sit under a caption that says 'maths'. Code, paths and identifiers are spelled the way the language spells them. Quoted material keeps its source's spelling. Editorial notes are a consumer's own working documents — a script's director notes, a comment in a build file — and are not copy: they are exempt from the punctuation rule for the same reason code is exempt from the spelling one. The DIALOGUE inside such a document is not exempt, because it is the source of a caption and a voice-over.",
   "currency": {
     "symbol": "$",
     "_note": "Bare $, no country prefix. BRAND-KIT §13, and NOT affected by the English variant — the audience is self-filtering and localisation is a separate build."
